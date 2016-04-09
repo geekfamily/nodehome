@@ -9,9 +9,11 @@ WORKDIR ./web/
 COPY ./subscriber.js /web/
 COPY ./package.json /web/
 COPY ./.babelrc /web/
+copy ./entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 RUN npm install
 RUN ./node_modules/.bin/babel ./subscriber.js --out-dir out
 EXPOSE 80
 
-CMD [ "node", "./out/subscriber.js" ]
+ENTRYPOINT [ "./entrypoint.sh" ]
 
