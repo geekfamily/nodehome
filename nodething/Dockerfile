@@ -15,5 +15,5 @@ RUN npm install
 RUN ./node_modules/.bin/babel ./subscriber.js --out-dir out
 EXPOSE 80
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ADD entrypoint.sh ./entrypoint.sh
 
